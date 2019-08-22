@@ -1,0 +1,228 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    margin: auto;
+    font-size: 16px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+a {
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+}
+a:hover {
+    color: #ccc;
+}
+.hidden {
+    display: none;
+}
+.container {
+    text-align: center;
+    color: #333;
+    width: 400px;
+    background: #f4f4f4;
+    margin: 0 auto;
+}
+.header {
+    background: rgba(5, 4, 4, 0.925);
+    margin: 0;
+    width: 100%;
+    padding: 10px;
+    color: #f4f4f4;
+}
+.navigation {
+    width: 100%;
+    border-bottom: 1px solid rgba(2, 99, 91, 0.945);
+}
+.navigation li {
+    color: #333;
+    display: inline-block;
+    padding: 10px;
+}
+.products {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 10px;
+    padding: 30px 0 50px 0;
+}
+.footer {
+    background: rgba(5, 4, 4, 0.979);
+    margin: 0;
+    padding: 10px;
+    width: 100%;
+}
+.footer__text {
+    color: #ccc;
+    font-style: italic;
+    font-size: 0.8rem;
+}
+
+/* Add Product Page Styles */
+.addProduct {
+    padding: 30px 0 50px 0;
+    width: 80%;
+    margin: 0 auto;
+}
+.addProduct input {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    margin: 10px 0;
+    outline: none;
+    border: 2px solid rgb(223, 221, 221);
+}
+.addProduct input:focus {
+    background: rgba(2, 99, 91, 0.219);
+    color: #333;
+    border: none;
+}
+.addProduct input[type="submit"] {
+    background-color: rgba(2, 99, 91, 0.945);
+    color: #ccc;
+    cursor: pointer;
+}
+
+/* Product Details Page Styles */
+.productDetails {
+    padding: 30px 0 50px 0;
+    width: 80%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.buyerDetails {
+    padding: 30px 0 50px 0;
+    width: 80%;
+    margin: 0 auto;
+}
+.buyerDetails input {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    margin: 10px 0;
+    outline: none;
+    border: 2px solid rgb(223, 221, 221);
+}
+.buyerDetails input:focus {
+    background: rgba(155, 160, 159, 0.219);
+    color: #333;
+    border: none;
+}
+.buyerDetails input[type="submit"] {
+    background-color: rgba(33, 37, 37, 0.884);
+    color: #ccc;
+    cursor: pointer;
+}
+
+/* Make Payment Page Styles */
+.paymentDetails {
+    padding: 30px 0 50px 0;
+    width: 80%;
+    margin: 0 auto;
+}
+.card__details {
+    padding: 50px 0;
+    position: relative;
+}
+.card {
+    display: block;
+}
+.card--digits {
+    width: 100%;
+}
+.card--digits input {
+    width: 20%;
+}
+.card--digits input, .card--info input {
+    display: inline-block;
+    padding: 3px;
+    margin: 10px 0;
+    outline: none;
+    border: none;
+    background: #fff;
+    text-align: center;
+}
+.card--info input:first-child {
+    width: 60%;
+}
+.payButton {
+    background-color: rgba(33, 37, 37, 0.884);
+    color: #ccc;
+    cursor: pointer;
+    padding: 8px;
+    width: 100%;
+    outline: none;
+    border: none;
+    margin: 20px auto;
+}
+.is-mastercard {
+    background-image: url('../img/mastercard.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+}
+.is-visa {
+    background-image: url('../img/visa.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+}
+.none {
+    background-image: url('../img/creditcard.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+}
+.is-invalid {
+    text-decoration: line-through;
+    color: rgba(99, 4, 4, 0.952);
+}
+.result {
+    color: #333;
+}
+
+@media (max-width: 500px) {
+    .container {
+        width: 100%;
+        background: none;
+        border: none;
+        margin: 0 auto;
+    }
+    body {
+        background: none;
+        margin: 0 auto;
+    }
+    .products {
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 10px;
+    }
+    .productDetails {
+        display: block;
+    }
+    .paymentDetails {
+        /* width: 90%; */
+    }
+    .addProduct, .productDetails {
+        /* width: 100%; */
+    }
+}
+@media (max-width: 750px) { 
+    /* .container {
+        width: 100%;
+        background: none;
+        border: none;
+        margin: 0 auto;
+    } */
+}

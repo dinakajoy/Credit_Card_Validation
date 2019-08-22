@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Credit Card Validation Demo</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>My E-SHOP</h1>
+        </header>
+        <main>
+            <nav class="navigation">
+                <ul>
+                    <li><a href="./">Home</a></li>
+                    <li><a href="addProduct.html">Add Product</a></li>
+                </ul>
+            </nav>
+            <section class="productDetails">
+                <div class="prodLeft">
+                    <img src="./img/eight.jpg" alt="" id="prodImg">
+                    <p class="prodName"></p>
+                </div>
+                <div class="prodRight" style="text-align: left">
+                    <p></p>
+                    <p>Add More Of This Item<br><input type="number" min="1" name="num_of_items" id="num_of_items" value="1" style="width:40px;"></p>
+                </div>
+            </section>
+            <section class="buyerDetails">
+                <h2>Please Enter Your Details Below:</h2>
+                <form action="" id="buyerDetails">
+                    <input type="text" name="buyer_name" id="buyer_name" required placeholder="Name Please">
+                    <input type="text" name="buyer_country" id="buyer_country" required placeholder="Country Please">
+                    <input type="submit" value="Submit" id="bDetails">
+                </form>
+            </section>
+        </main>
+        <footer class="footer">
+            <p class="footer__text">Buy And Easily Pay For Any Product</p>
+        </footer>
+    </div>
+
+    <script>
+        window.onload = () => {
+            let prodImg = document.querySelector('#prodImg');
+            let prodName = document.querySelector('.prodName');
+            let index = localStorage.getItem('index');
+            localStorage.removeItem('index');
+
+            let db;
+            let request = indexedDB.open("allProducts", 1);
+            // onerror handler signifies that the database didn't open successfully
+            request.onerror = () => {
+                console.log('Database failed to open');
+            };
+            // onsuccess handler signifies that the database opened successfully
+            request.onsuccess = () => {
+                db = event.target.result;
+                let transaction = db.transaction(["products"], "readonly");
+                transaction.onsuccess = function(event) {
+                    console.log('[Transaction] ALL DONE!');
+                };
+                let objectStore = transaction.objectStore('products');
+                objectStore.get(Number.parseInt(index)).onsuccess = function(event) {
+                    let res = event.target.result;
+                    prodImg.src = `./img/${res.img}`;
+                    prodName.textContent = res.name;
+
+                    localStorage.setItem('id', res.id);
+                    localStorage.setItem('prodName', res.name);
+                    localStorage.setItem('prodImage', res.img);
+                    localStorage.setItem('prodPrice', res.price);
+                };
+            };
+        };
+
+        const userDetails = (e) => {
+            e.preventDefault();
+            let buyer_name = document.querySelector('#buyer_name').value;
+            let buyer_country = document.querySelector('#buyer_country').value;
+            let num_of_items = document.querySelector('#num_of_items').value;
+            localStorage.setItem ('buyer_name', buyer_name);
+            localStorage.setItem ('buyer_country', buyer_country);
+            localStorage.setItem ('num_of_items', num_of_items);
+            window.location.replace("./makePayment.html");
+        }; 
+        let buyerDetails = document.querySelector('#buyerDetails');
+        buyerDetails.addEventListener('submit', userDetails);
+    </script>
+</body>
+</html>
