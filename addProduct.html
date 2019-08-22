@@ -57,12 +57,6 @@
                 // Report on the success of the transaction completing, when everything is done
                 transaction.oncomplete = function() {
                     console.log('Transaction completed: database modification finished.');
-                    fso = new ActiveXObject("Scripting.FileSystemObject");
-                    if(fso.CopyFile (prod_img, "./img/")) {
-                        window.location.replace ("./");
-                    } else {
-                        alert ("An Error Occured While Uploading File");
-                    }
                 };
 
                 // Report on the error of the transaction completing
