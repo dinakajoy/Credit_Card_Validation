@@ -21,7 +21,7 @@
             </nav>
             <section class="productDetails">
                 <div class="prodLeft">
-                    <img src="./img/eight.jpg" alt="" id="prodImg">
+                    <img src="" alt="" id="prodImg">
                     <p class="prodName"></p>
                 </div>
                 <div class="prodRight" style="text-align: left">
@@ -39,7 +39,7 @@
             </section>
         </main>
         <footer class="footer">
-            <p class="footer__text">Buy And Easily Pay For Any Product</p>
+            <p class="footer__text">Buy And Easily Pay For Any Product - Developed By Odinaka Joy</p>
         </footer>
     </div>
 
@@ -66,16 +66,26 @@
                 let objectStore = transaction.objectStore('products');
                 objectStore.get(Number.parseInt(index)).onsuccess = function(event) {
                     let res = event.target.result;
-                    prodImg.src = `./img/${res.img}`;
+                    let img = imageExists(res.img);
+                    prodImg.src = `img/${img}`;
                     prodName.textContent = res.name;
 
                     localStorage.setItem('id', res.id);
                     localStorage.setItem('prodName', res.name);
-                    localStorage.setItem('prodImage', res.img);
+                    localStorage.setItem('prodImage', img);
                     localStorage.setItem('prodPrice', res.price);
                 };
             };
         };
+
+        function imageExists(url) {
+            if (url.includes("fakepath")) {
+                return `no_logo.gif`;
+            }
+            if(`img/${url}`) {
+                return `${url}`;
+            } 
+        }
 
         const userDetails = (e) => {
             e.preventDefault();

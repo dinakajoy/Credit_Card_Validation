@@ -92,6 +92,7 @@ a:hover {
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
 }
 .buyerDetails {
     padding: 30px 0 50px 0;
@@ -211,18 +212,4 @@ a:hover {
     .productDetails {
         display: block;
     }
-    .paymentDetails {
-        /* width: 90%; */
-    }
-    .addProduct, .productDetails {
-        /* width: 100%; */
-    }
-}
-@media (max-width: 750px) { 
-    /* .container {
-        width: 100%;
-        background: none;
-        border: none;
-        margin: 0 auto;
-    } */
 }

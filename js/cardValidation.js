@@ -110,7 +110,7 @@ const flagIfInvalid = (field, isValid) => {
 };
 
 const expiryDateFormatIsValid = (field) => {
-    const format = /([1-9]|1[0-2])\/(\d{2})/;
+    const format = /^(0?[1-9]|1[0-2])\/?([0-9]{2})$/;
     if(format.test(field)) {
         return true;
     } else {
@@ -129,6 +129,9 @@ const validateCardExpiryDate = () => {
 
         let cardMonth = cardDate.split("/")[0].slice(-1);
         let cardYear = cardDate.split("/")[1];
+        
+        console.log(cardMonth, currentMonth);
+        console.log(cardYear, currentYear);
         
         if( (cardMonth < currentMonth && cardYear <= currentYear) || (cardYear < currentYear) ) {
             flagIfInvalid(card_date, false);
@@ -162,18 +165,15 @@ const detectCardType = (first4Digits) => {
     if(Number.parseInt(first4Digits[0]) === 4) {
         cardDetails.classList.add('is-visa');
         cardDetails.classList.remove('is-mastercard');
-        // dataCardType.src= supportedCards.visa;
         return "is-visa";
     } else if(Number.parseInt(first4Digits[0]) === 5) {
         cardDetails.classList.add('is-mastercard');
         cardDetails.classList.remove('is-visa');
-        // dataCardType.src = supportedCards.mastercard;
         return "is-mastercard";
     } else {
         cardDetails.classList.remove('is-visa');
         cardDetails.classList.remove('is-mastercard');
         cardDetails.classList.add('none');
-        // dataCardType.src = "https://placehold.it/120x60.png?text=card";
         console.log("Oooops, You Card Is Not A Master Card Or A Visa Card");
     }
 };
@@ -204,19 +204,24 @@ const validateWithLuhn = (digits) => {
 };
 
 const validateCardNumber = () => {
-    const digits = appCardDigits.flat();
-    if(validateWithLuhn(digits)) {
-        flagIfInvalid(cardDigits[0], true);
-        flagIfInvalid(cardDigits[1], true);
-        flagIfInvalid(cardDigits[2], true);
-        flagIfInvalid(cardDigits[3], true);
-        result.textContent = "Welldone. Payment Was Successful";
+    if(cardDigits[0].value === '' || cardDigits[1].value === '' || cardDigits[2].value === '' || cardDigits[3].value === '') {
+        result.textContent = "Nooopee, Please Enter Card Numbers";
     } else {
-        result.textContent = "Oooops, You Cannot Use An Invalid Card";
-        flagIfInvalid(cardDigits[0], false);
-        flagIfInvalid(cardDigits[1], false);
-        flagIfInvalid(cardDigits[2], false);
-        flagIfInvalid(cardDigits[3], false);
+        const digits = appCardDigits.flat();
+        if(validateWithLuhn(digits)) {
+            flagIfInvalid(cardDigits[0], true);
+            flagIfInvalid(cardDigits[1], true);
+            flagIfInvalid(cardDigits[2], true);
+            flagIfInvalid(cardDigits[3], true);
+            result.textContent = "Welldone. Payment Was Successful";
+            document.querySelector(".payButton").style.display = "none";
+        } else {
+            result.textContent = "Oooops, You Cannot Use An Invalid Card";
+            flagIfInvalid(cardDigits[0], false);
+            flagIfInvalid(cardDigits[1], false);
+            flagIfInvalid(cardDigits[2], false);
+            flagIfInvalid(cardDigits[3], false);
+        }
     }
 };
 
@@ -262,7 +267,9 @@ const smartInput = (event, fieldIndex, fields) => {
         }
     } else {
         if(event.key === 'Backspace' || event.key === 'Delete') {
+            event.preventDefault();
             if(event.key === 'Backspace') {
+                event.preventDefault();
                 selectionStart = (selectionStart - 1 > 0) ? selectionStart - 1 : 0;
             }
             appCardDigits[fieldIndex].splice(selectionStart, 1);

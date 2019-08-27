@@ -23,9 +23,10 @@ window.addEventListener('load', () => {
             // Get a reference to the cursor
             let cursor = e.target.result;
             if(cursor) {
+                let img = imageExists(cursor.value.img);
                 prod += `<div>
                         <a href="productDetails.html" id="${cursor.value.id}" onClick=myFunc(this.id)>
-                            <img src="img/${cursor.value.img}" alt="${cursor.value.name}">
+                            <img src="img/${img}" alt="${cursor.value.name}">
                             <p>${cursor.value.name}</p>
                             <span class="hidden">cursor.value.price</span>
                         </a>
@@ -39,3 +40,12 @@ window.addEventListener('load', () => {
 const myFunc = (id) => {
     localStorage.setItem('index', id);
 };
+
+function imageExists(url) {
+    if (url.includes("fakepath")) {
+        return `no_logo.gif`;
+    }
+    if(`img/${url}`) {
+        return `${url}`;
+    } 
+}
