@@ -44,6 +44,19 @@
     </div>
 
     <script>
+        document.getElementById('buyer_name').onkeypress = (e) => {
+            if(("abcdefghijklmnopqrstuvwxyz ").indexOf(String.fromCharCode(e.keyCode)) === -1) {
+                e.preventDefault();
+                return false;
+            }
+        }
+        document.getElementById('buyer_country').onkeypress = (e) => {
+            if(("abcdefghijklmnopqrstuvwxyz ").indexOf(String.fromCharCode(e.keyCode)) === -1) {
+                e.preventDefault();
+                return false;
+            }
+        }
+
         window.onload = () => {
             let prodImg = document.querySelector('#prodImg');
             let prodName = document.querySelector('.prodName');

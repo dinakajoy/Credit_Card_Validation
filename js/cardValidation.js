@@ -19,10 +19,6 @@ document.querySelector(".cardN").value = buyer_name;
 
 const appCardDigits = [];
 
-// const supportedCards = {
-//     visa, mastercard
-// };
-
 const countries = [
     {
         code: "US",
@@ -130,9 +126,6 @@ const validateCardExpiryDate = () => {
         let cardMonth = cardDate.split("/")[0].slice(-1);
         let cardYear = cardDate.split("/")[1];
         
-        console.log(cardMonth, currentMonth);
-        console.log(cardYear, currentYear);
-        
         if( (cardMonth < currentMonth && cardYear <= currentYear) || (cardYear < currentYear) ) {
             flagIfInvalid(card_date, false);
             result.textContent = "Oh No, Your Card Has Expired";
@@ -181,8 +174,6 @@ const detectCardType = (first4Digits) => {
 const validateWithLuhn = (digits) => {
     let total = 0;
     const newDigits = digits.reverse();
-    console.log(typeof(newDigits));
-    console.log(newDigits);
     newDigits.forEach((value, index) => {
         if((index % 2) > 0) {
             let doubled = Number.parseInt(value) * 2;
@@ -195,7 +186,6 @@ const validateWithLuhn = (digits) => {
             total += Number.parseInt(value) ;
         }
     });
-    console.log(total);
     if((total % 10) === 0) {
         return true;
     } else {
@@ -208,6 +198,10 @@ const validateCardNumber = () => {
         result.textContent = "Nooopee, Please Enter Card Numbers";
     } else {
         const digits = appCardDigits.flat();
+        if(digits.length !== 16) {
+            result.textContent = "Ooh Nooo, Can You Please Enter Complete Card Numbers";
+            return;
+        }
         if(validateWithLuhn(digits)) {
             flagIfInvalid(cardDigits[0], true);
             flagIfInvalid(cardDigits[1], true);
@@ -266,15 +260,16 @@ const smartInput = (event, fieldIndex, fields) => {
             }, 500);
         }
     } else {
-        if(event.key === 'Backspace' || event.key === 'Delete') {
-            event.preventDefault();
-            if(event.key === 'Backspace') {
-                event.preventDefault();
-                selectionStart = (selectionStart - 1 > 0) ? selectionStart - 1 : 0;
+        if(fieldIndex < 4) {
+            if(event.key === 'Backspace' || event.key === 'Delete') {
+                if(event.key === 'Backspace') {
+                    event.preventDefault();
+                    selectionStart = (selectionStart - 1 > 0) ? selectionStart - 1 : 0;
+                }
+                appCardDigits[fieldIndex].splice(selectionStart, 1);
+                target.value = appCardDigits[fieldIndex].map(val => '$').join('');
+                target.selectionStart = selectionStart;
             }
-            appCardDigits[fieldIndex].splice(selectionStart, 1);
-            target.value = appCardDigits[fieldIndex].map(val => '$').join('');
-            target.selectionStart = selectionStart;
         }
     }
 

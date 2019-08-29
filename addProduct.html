@@ -49,13 +49,10 @@
                 var transaction = db.transaction(["products"], "readwrite");
                 let objectStore = transaction.objectStore('products');
                 var request = objectStore.add(newItem);
-                    prod_name.value = '';
-                    prod_price.value = '';
-                    prod_img.value = '';
-                
                 // Report on the success of the transaction completing, when everything is done
                 transaction.oncomplete = function() {
-                    console.log('Transaction completed: database modification finished.');
+                    alert("Product Has Been Added Successfully");
+                    window.location.reload(true);
                 };
 
                 // Report on the error of the transaction completing

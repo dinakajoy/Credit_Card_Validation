@@ -49,3 +49,15 @@ function imageExists(url) {
         return `${url}`;
     } 
 }
+// window.addEventListener('beforeunload', function (e) { 
+//     var req = indexedDB.deleteDatabase("allProducts", 1);
+//     req.onsuccess = function () {
+//         console.log("Deleted database successfully");
+//     };
+//     req.onerror = function () {
+//         console.log("Couldn't delete database");
+//     };
+//     req.onblocked = function () {
+//         console.log("Couldn't delete database due to the operation being blocked");
+//     };
+// }); 
