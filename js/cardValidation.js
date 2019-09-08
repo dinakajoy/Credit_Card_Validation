@@ -123,7 +123,7 @@ const validateCardExpiryDate = () => {
         const currentMonth = date.getMonth() + 1;
         const currentYear = date.getFullYear().toString().slice(-2);
 
-        let cardMonth = cardDate.split("/")[0].slice(-1);
+        let cardMonth = cardDate.split("/")[0];
         let cardYear = cardDate.split("/")[1];
         
         if( (cardMonth < currentMonth && cardYear <= currentYear) || (cardYear < currentYear) ) {
