@@ -28,7 +28,7 @@ window.addEventListener('load', () => {
                         <a href="productDetails.html" id="${cursor.value.id}" onClick=myFunc(this.id)>
                             <img src="img/${img}" alt="${cursor.value.name}">
                             <p>${cursor.value.name}</p>
-                            <span class="hidden">cursor.value.price</span>
+                            <span>NGN${cursor.value.price}</span>
                         </a>
                     </div>`;
                 cursor.continue();
