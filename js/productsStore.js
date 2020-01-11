@@ -46,6 +46,10 @@ let myProducts = [
     },
 ];
 
+if (!window.indexedDB) {
+    console.log("Your browser doesn't support a stable version of IndexedDB. Some feature will not be available.");
+}
+
 window.onload = () => {
     let request = indexedDB.open('allProducts', 1);
     // Setup the database tables if this has not already been done

@@ -10,7 +10,7 @@ window.addEventListener('load', () => {
     request.onsuccess = () => {
         console.log('Database opened successfully');
         db = request.result;
-        // Run the displayData() function to display the notes already in the IDB
+        // Run the displayData() function to display the products already in the IDB
         displayProducts();
     };
 
@@ -20,7 +20,6 @@ window.addEventListener('load', () => {
         // Open object store and then get a cursor - which iterates through all the products in the store
         let objectStore = db.transaction(["products"], "readonly").objectStore('products');
         objectStore.openCursor().onsuccess = (e) => {
-            // Get a reference to the cursor
             let cursor = e.target.result;
             if(cursor) {
                 let img = imageExists(cursor.value.img);

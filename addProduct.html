@@ -44,7 +44,7 @@
             let newItem = { name: prod_name, price: prod_price, img: prod_img };
             
             let request = indexedDB.open("allProducts", 1);
-            request.onsuccess = function() {
+            request.onsuccess = function(event) {
                 let db = event.target.result;
                 var transaction = db.transaction(["products"], "readwrite");
                 let objectStore = transaction.objectStore('products');
