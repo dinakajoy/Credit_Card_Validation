@@ -4,13 +4,13 @@
 This is a simple javascript application that validates users credit cards after selecting an item from the list of products. It does not process the payment, just validates your credit card.
 
 ## Installation
-Clone the repository and cd into the project directory
-Open with live server or open index.html file in your browser
+Clone the repository and cd into the project directory  
+Open with live server or open index.html file in your browser  
 
 ## Usage
-Select desired product
-Add more quantity if you desire, enter your details and submit
-Enter your card details and await response on whether it is a valid card or not
+Select desired product  
+Add more quantity if you desire, enter your details and submit  
+Enter your card details and await response on whether it is a valid card or not \
 You can also add your own product(s) to the list - you are welcome
 
 ## Built With
