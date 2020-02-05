@@ -1,78 +1,111 @@
 let myProducts = [
-    {
-        name: "Female Wear",
-        price: "45",
-        img: "eight.jpg"
+  {
+    name: "Black Gown",
+    price: "45",
+    img: "black-gown.jpg"
+  },
+  {
+    "name": "Black Jacket",
+    "price": "25",
+    "img": "black-jacket.png"
+  },
+  {
+    "name": "Black Skirt",
+    "price": "30",
+    "img": "black-skirt.png"
     },
-    {
-        "name": "Cold Jacket",
-        "price": "15",
-        "img": "five.jpg"
-    },
-    {
-        "name": "Classy",
-        "price": "30",
-        "img": "one.jpg"
-    },
-    {
-        "name": "Gown",
-        "price": "25",
-        "img": "seven.jpg"
-    },
-    {
-        "name": "Female Shoe",
-        "price": "45",
-        "img": "six.jpg"
-    },
-    {
-        "name": "Skirt",
-        "price": "15",
-        "img": "ten.jpg"
-    },
-    {
-        "name": "Suit",
-        "price": "50",
-        "img": "three.jpg"
-    },
-    {
-        "name": "Male Shoe",
-        "price": "38",
-        "img": "two.jpg"
-    },
-    {
-        "name": "Female Top",
-        "price": "20",
-        "img": "four.jpg"
-    },
+  {
+    name: "Gold Gown",
+    price: "45",
+    img: "gold-gown.png"
+  },
+  {
+    "name": "Blue Shirt",
+    "price": "25",
+    "img": "blue-shirt.png"
+  },
+  {
+    "name": "Cold Top",
+    "price": "45",
+    "img": "cold-top-longsleeve.png"
+  },
+  {
+    "name": "Kid's Jacket",
+    "price": "20",
+    "img": "kids-jacket.png"
+  },
+  {
+    "name": "Cold Top",
+    "price": "15",
+    "img": "cold-top.png"
+  },
+  {
+    "name": "Kid's Gown",
+    "price": "20",
+    "img": "kids-gown.png"
+  },
+  {
+    "name": "Army Shirt",
+    "price": "20",
+    "img": "army-shirt.jpg"
+  },
+  {
+    "name": "Red Gown",
+    "price": "50",
+    "img": "red-gown.png"
+  },
+  {
+    "name": "Sweater",
+    "price": "38",
+    "img": "sweater.png"
+  },
+  {
+    "name": "Summer Gown",
+    "price": "20",
+    "img": "summer-gown.jpg"
+  },
+  {
+    "name": "White Gown",
+    "price": "20",
+    "img": "white-gown.png"
+  },
+  {
+    "name": "Yellow Cold Jacket",
+    "price": "20",
+    "img": "yellow-cold-jacket.png"
+  },
+  {
+    "name": "Pink Gown",
+    "price": "20",
+    "img": "pink-gown.jpg"
+  },
 ];
 
 if (!window.indexedDB) {
-    console.log("Your browser doesn't support a stable version of IndexedDB. Some feature will not be available.");
+  console.log("Your browser doesn't support a stable version of IndexedDB. Some feature will not be available.");
 }
 
 window.onload = () => {
-    let request = indexedDB.open('allProducts', 1);
-    // Setup the database tables if this has not already been done
-    request.onupgradeneeded = (e) => {
-        let db = e.target.result;
-        // Create an objectStore to store our products in (basically like a single table)
-        let objectStore = db.createObjectStore('products', { keyPath: 'id', autoIncrement:true }); //key
-        objectStore.createIndex('name', 'name', { unique: false });
-        objectStore.createIndex('price', 'price', { unique: false });
-        objectStore.createIndex('img', 'img', { unique: false });
-        console.log('Database setup complete');
-        objectStore.transaction.oncomplete = (e) => {
-            var productsObjectStore = db.transaction("products", "readwrite").objectStore("products");
-            myProducts.forEach((product) => {
-                productsObjectStore.add(product);
-            });
-        };
-        request.onsuccess = () => {
-            console.log("Products has been added to the store", request.result);
-        };
-
-        request.onerror = () => {
-            console.log("Error", request.error);
-        };
+  let productDB = indexedDB.open('productDB', 1);
+  productDB.onupgradeneeded = (e) => {
+    let db = e.target.result;
+    let objectStore = db.createObjectStore('products', { keyPath: 'id', autoIncrement:true }); //key
+    objectStore.createIndex('name', 'name', { unique: false });
+    objectStore.createIndex('price', 'price', { unique: false });
+    objectStore.createIndex('img', 'img', { unique: false });
+    console.log('Database setup complete');
+    objectStore.transaction.oncomplete = (e) => {
+      let productsObjectStore = db.transaction("products", "readwrite").objectStore("products");
+      myProducts.forEach((product) => {
+        productsObjectStore.add(product);
+      });
     };
+    productDB.onsuccess = () => {
+      console.log("Products has been added to the productDB store", request.result);
+    };
+
+    productDB.onerror = () => {
+      console.log("Error", request.error);
+    };
+  };
 };

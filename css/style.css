@@ -19,23 +19,23 @@ a:hover {
 .hidden {
     display: none;
 }
-.container {
-    text-align: center;
-    color: #333;
+img {
     width: 80%;
-    background: #f4f4f4;
-    margin: 0 auto;
+    height: 150px;
 }
+
 .header {
     background: rgba(5, 4, 4, 0.925);
     margin: 0;
     width: 100%;
     padding: 20px;
     color: #f4f4f4;
+    text-align: center;
 }
 .navigation {
     width: 100%;
     border-bottom: 1px solid rgba(2, 99, 91, 0.945);
+    text-align: center;
 }
 .navigation li {
     color: #333;
@@ -43,48 +43,26 @@ a:hover {
     padding: 10px;
 }
 .products {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-gap: 10px;
-    padding: 30px 0 50px 0;
-    width: 80%;
-    margin: 0 auto;
+    display: block;
+    grid-gap: 50px;
+    width: 90%;
+    margin: 50px auto;
+    text-align: center;
+}
+.product {
+    padding: 30px 10px;
 }
 .footer {
     background: rgba(5, 4, 4, 0.979);
     margin: 0;
     padding: 10px;
     width: 100%;
+    text-align: center;
 }
 .footer__text {
     color: #ccc;
     font-style: italic;
     font-size: 0.8rem;
-}
-
-/* Add Product Page Styles */
-.addProduct {
-    padding: 30px 0 50px 0;
-    width: 80%;
-    margin: 0 auto;
-}
-.addProduct input {
-    display: block;
-    width: 100%;
-    padding: 8px;
-    margin: 10px 0;
-    outline: none;
-    border: 2px solid rgb(223, 221, 221);
-}
-.addProduct input:focus {
-    background: rgba(2, 99, 91, 0.219);
-    color: #333;
-    border: none;
-}
-.addProduct input[type="submit"] {
-    background-color: rgba(2, 99, 91, 0.945);
-    color: #ccc;
-    cursor: pointer;
 }
 
 /* Product Details Page Styles */
@@ -95,6 +73,9 @@ a:hover {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 10px;
+}
+.prodName {
+    text-align: center;
 }
 .buyerDetails {
     padding: 30px 0 50px 0;
@@ -115,16 +96,15 @@ a:hover {
     border: none;
 }
 .buyerDetails input[type="submit"] {
-    background-color: rgba(33, 37, 37, 0.884);
+    background-color: rgba(2, 99, 91, 0.945);
     color: #ccc;
     cursor: pointer;
 }
 
 /* Make Payment Page Styles */
 .paymentDetails {
-    padding: 30px 0 50px 0;
+    margin: 50px auto;
     width: 80%;
-    margin: 0 auto;
 }
 .card__details {
     padding: 50px 0;
@@ -152,7 +132,7 @@ a:hover {
     width: 60%;
 }
 .payButton {
-    background-color: rgba(33, 37, 37, 0.884);
+    background-color: rgba(2, 99, 91, 0.945);
     color: #ccc;
     cursor: pointer;
     padding: 8px;
@@ -196,22 +176,62 @@ a:hover {
     color: #333;
 }
 
-@media (max-width: 500px) {
-    .container {
-        width: 100%;
-        background: none;
-        border: none;
-        margin: 0 auto;
-    }
-    body {
-        background: none;
-        margin: 0 auto;
-    }
+/* Add Product Page Styles */
+.addProduct {
+    padding: 30px 0 50px 0;
+    width: 80%;
+    margin: 50px auto;
+}
+.addProduct input {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    margin: 10px 0;
+    outline: none;
+    border: 2px solid rgb(223, 221, 221);
+}
+.addProduct input:focus {
+    background: rgba(2, 99, 91, 0.219);
+    color: #333;
+    border: none;
+}
+.addProduct input[type="submit"] {
+    background-color: rgba(2, 99, 91, 0.945);
+    color: #ccc;
+    cursor: pointer;
+}
+
+@media (min-width: 400px) {
     .products {
+        display: grid;
         grid-template-columns: 1fr 1fr;
-        grid-gap: 10px;
     }
-    .productDetails {
-        display: block;
+    .product {
+        padding: 0;
+    }
+}
+
+@media (min-width: 600px) {
+    .products {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    .main {
+        width: 80%;
+        margin: 0 auto;
+    }
+    .paymentDetails, .addProduct {
+        margin: 50px auto;
+        width: 70%;
+    }
+}
+
+@media (min-width: 900px) {
+    .products {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+    .main {
+        width: 60%;
     }
 }

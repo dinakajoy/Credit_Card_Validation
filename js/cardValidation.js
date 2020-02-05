@@ -13,7 +13,7 @@ const buyer_country = localStorage.getItem ('buyer_country');
 const num_of_items = localStorage.getItem ('num_of_items');
 
 document.querySelector(".buyerName").textContent = buyer_name;
-document.querySelector(".prodName").textContent = `Make Payment For ${num_of_items} Number Of ${prodName}`;
+document.querySelector(".prodName").textContent = `Make Payment For ${num_of_items} ${prodName} at `;
 document.querySelector(".prodImg").src = `./img/${prodImg}`;
 document.querySelector(".cardN").value = buyer_name;
 
