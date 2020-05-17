@@ -81,7 +81,7 @@ let myProducts = [
   },
 ];
 
-if (!window.indexedDB) {
+if (!('indexedDB' in window)) {
   console.log("Your browser doesn't support a stable version of IndexedDB. Some feature will not be available.");
 }
 

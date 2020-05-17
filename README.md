@@ -10,7 +10,7 @@ Open with live server or open index.html file in your browser
 ## Usage
 Select desired product  
 Add more quantity if you desire, enter your details and submit  
-Enter your card details and await response on whether it is a valid card or not \
+Enter your card details and await response on whether it is a valid card or not  
 You can also add your own product(s) to the list - you are welcome
 
 ## Built With
@@ -24,4 +24,4 @@ You can also add your own product(s) to the list - you are welcome
 Access app via https://my-creditcard-project.netlify.com/
 
 ## Author
-[Odinaka Joy](https://odinaka-joy.github.io)
+[Odinaka Joy](https://odinakajoy.com)
