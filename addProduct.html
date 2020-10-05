@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +9,12 @@
     <link rel="shortcut icon" href="./img/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="./css/style.css">
 </head>
+
 <body>
+    <div id="loader">
+        <img src="./img/loader.gif" alt="loader" />
+    </div>
+
     <header class="header">
         <h1>DINAKA'S BOUTTIQUE</h1>
     </header>
@@ -20,20 +26,21 @@
                 <li><a href="addProduct.html">Add Product</a></li>
             </ul>
         </nav>
-            <section class="main addProduct">
-                <form action="" name="newProduct" id="newProduct">
-                    <input type="text" name="prod_name" id="prod_name" required placeholder="Product Name">
-                    <input type="text" name="prod_price" id="prod_price" required placeholder="Price in US Dollar">
-                    <input type="file" name="prod_image" id="prod_img" required>
-                    <input type="submit" name="addProduct" id="addProduct" value="Add">
-                </form>
-            </section>
-        </main>
-        <footer class="footer">
-            <p class="footer__text">Buy And Easily Pay For Any Product - Developed By Odinaka Joy</p>
-        </footer>
+        <section class="main addProduct">
+            <form action="" name="newProduct" id="newProduct">
+                <input type="text" name="prod_name" id="prod_name" required placeholder="Product Name">
+                <input type="text" name="prod_price" id="prod_price" required placeholder="Price in US Dollar">
+                <input type="file" name="prod_image" id="prod_img" required>
+                <input type="submit" name="addProduct" id="addProduct" value="Add">
+            </form>
+        </section>
+    </main>
+    <footer class="footer">
+        <p class="footer__text">Buy And Easily Pay For Any Product - Developed By Odinaka Joy</p>
+    </footer>
     </div>
 
+    <script src="./js/loader.js"></script>
     <script>
         const addProduct = (e) => {
             e.preventDefault();
@@ -42,22 +49,26 @@
             let prod_img = document.querySelector('#prod_img').value;
 
             // grab the values entered into the form fields and store them in an object ready for being inserted into the DB
-            let newItem = { name: prod_name, price: prod_price, img: prod_img };
-            
+            let newItem = {
+                name: prod_name,
+                price: prod_price,
+                img: prod_img
+            };
+
             let request = indexedDB.open("allProducts", 1);
-            request.onsuccess = function(event) {
+            request.onsuccess = function (event) {
                 let db = event.target.result;
                 var transaction = db.transaction(["products"], "readwrite");
                 let objectStore = transaction.objectStore('products');
                 var request = objectStore.add(newItem);
                 // Report on the success of the transaction completing, when everything is done
-                transaction.oncomplete = function() {
+                transaction.oncomplete = function () {
                     alert("Product Has Been Added Successfully");
                     window.location.reload(true);
                 };
 
                 // Report on the error of the transaction completing
-                transaction.onerror = function() {
+                transaction.onerror = function () {
                     console.log('Transaction not opened due to error');
                 };
             };
@@ -67,4 +78,5 @@
         newProduct.addEventListener('submit', addProduct);
     </script>
 </body>
+
 </html>
