@@ -267,3 +267,37 @@ img {
         margin: 0 auto;
     }
 }
+
+.alert-danger {
+    padding: 20px;
+    background-color: #f44336;
+    color: white;
+    display: none;
+    margin: 20px auto;
+  }
+  .alert-success {
+    padding: 20px;
+    background-color: #3cf436;
+    color: white;
+    display: none;
+    margin: 20px auto;
+  }
+
+  .alert-danger .result, .alert-success .result {
+    color: white;
+  }
+  
+  .closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .closebtn:hover {
+    color: black;
+  }

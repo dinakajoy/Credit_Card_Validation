@@ -3,6 +3,8 @@ const cardDigits = document.querySelectorAll(".card--digits input");
 const cardInfo = document.querySelectorAll(".card--info input");
 
 const result = document.querySelector(".result");
+const success = document.querySelector(".alert-success");
+const error = document.querySelector(".alert-danger");
 
 const buyer_name = localStorage.getItem ('buyer_name');
 const prodName = localStorage.getItem ('prodName');
@@ -111,6 +113,8 @@ const expiryDateFormatIsValid = (field) => {
         return true;
     } else {
         result.textContent = "Please, Your Card Date Shoud Be In This Format - MM/YY. Thank You";
+        error.style.display = 'block';
+        success.style.display = 'none';
         return false;
     }
 };
@@ -129,6 +133,8 @@ const validateCardExpiryDate = () => {
         if( (cardMonth < currentMonth && cardYear <= currentYear) || (cardYear < currentYear) ) {
             flagIfInvalid(card_date, false);
             result.textContent = "Oh No, Your Card Has Expired";
+            error.style.display = 'block';
+            success.style.display = 'none';
             return false;
         } else {
             flagIfInvalid(card_date, true);
@@ -150,6 +156,8 @@ const validateCardHolderName = () => {
     } else {
         flagIfInvalid(card_name, false);
         result.textContent = "Oh No, Your Name(s) Is Not Long Enough";
+        error.style.display = 'block';
+        success.style.display = 'none';
         return false;
     }
 };
@@ -196,10 +204,14 @@ const validateWithLuhn = (digits) => {
 const validateCardNumber = () => {
     if(cardDigits[0].value === '' || cardDigits[1].value === '' || cardDigits[2].value === '' || cardDigits[3].value === '') {
         result.textContent = "Nooopee, Please Enter Card Numbers";
+        error.style.display = 'block';
+        success.style.display = 'none';
     } else {
         const digits = appCardDigits.flat();
         if(digits.length !== 16) {
             result.textContent = "Ooh Nooo, Can You Please Enter Complete Card Numbers";
+            error.style.display = 'block';
+            success.style.display = 'none';
             return;
         }
         if(validateWithLuhn(digits)) {
@@ -208,9 +220,13 @@ const validateCardNumber = () => {
             flagIfInvalid(cardDigits[2], true);
             flagIfInvalid(cardDigits[3], true);
             result.textContent = "Welldone. Payment Was Successful";
+            error.style.display = 'none';
+            success.style.display = 'block';
             document.querySelector(".payButton").style.display = "none";
         } else {
             result.textContent = "Oooops, You Cannot Use An Invalid Card";
+            error.style.display = 'block';
+            success.style.display = 'none';
             flagIfInvalid(cardDigits[0], false);
             flagIfInvalid(cardDigits[1], false);
             flagIfInvalid(cardDigits[2], false);

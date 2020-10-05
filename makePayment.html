@@ -42,7 +42,14 @@
                     </section>
                 </div>
                 
-                <blockquote class="result"></blockquote>
+                <div class="alert-danger">
+                    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+                    <strong>Error! </strong><span class="result"></span>
+                </div>
+                <div class="alert-success">
+                    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+                    <strong>Success! </strong><span class="result"></span>
+                </div>
                 <div class="card__details">
                     <div class="card--digits">
                         <input type="text" size="4" placeholder="----" class="f">
