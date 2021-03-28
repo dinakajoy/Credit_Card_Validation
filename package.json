@@ -1,0 +1,44 @@
+{
+  "name": "credit_card_validation",
+  "version": "2.0.0",
+  "description": "This is a mini e-commerce app built with HTML, SCSS and TypeScript",
+  "scripts": {
+    "start": "webpack serve --config webpack.dev.js --open",
+    "build": "webpack --config webpack.prod.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dinakajoy/Credit_Card_Validation.git"
+  },
+  "author": "Odinaka Joy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dinakajoy/Credit_Card_Validation/issues"
+  },
+  "homepage": "https://github.com/dinakajoy/Credit_Card_Validation#readme",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.19.0",
+    "@typescript-eslint/parser": "^4.19.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^8.1.0",
+    "css-loader": "^5.2.0",
+    "eslint": "^7.23.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "file-loader": "^6.2.0",
+    "html-loader": "^2.1.2",
+    "html-webpack-plugin": "^5.3.1",
+    "mini-css-extract-plugin": "^1.4.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.4",
+    "sass": "^1.32.8",
+    "sass-loader": "^11.0.1",
+    "style-loader": "^2.0.0",
+    "terser-webpack-plugin": "^5.1.1",
+    "ts-loader": "^8.0.18",
+    "typescript": "^4.2.3",
+    "url-loader": "^4.1.1",
+    "webpack": "^5.28.0",
+    "webpack-cli": "^4.6.0",
+    "webpack-dev-server": "^3.11.2"
+  }
+}

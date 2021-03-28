@@ -1,0 +1,333 @@
+// General Styles
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  margin: auto;
+  font-size: 16px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
+}
+a {
+  color: #333;
+  text-decoration: none;
+  font-weight: bold;
+  
+  &:hover {
+    color: rgb(122, 121, 121);
+  }
+}
+
+// Loader Styles
+.loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background-color: #fff;
+  
+  img {
+    position: absolute;
+    width: auto;
+  }
+}
+.hidden {
+  display: none;
+}
+
+// Header Styles
+.header {
+  background: rgba(5, 4, 4, 0.925);
+  margin: 0;
+  width: 100%;
+  padding: 20px;
+  color: #f4f4f4;
+  text-align: center;
+}
+.navigation {
+  width: 100%;
+  border-bottom: 5px solid rgba(2, 99, 91, 0.945);
+  text-align: center;
+
+  li {
+    color: #333;
+    display: inline-block;
+    padding: 10px;
+  }
+}
+
+// Footer Styles 
+.footer {
+  background: rgba(5, 4, 4, 0.979);
+  margin: 0;
+  padding: 10px;
+  width: 100%;
+  text-align: center;
+}
+.footer__text {
+  color: #ccc;
+  font-style: italic;
+  font-size: 0.8rem;
+}
+
+// Products Styles 
+.products {
+  display: block;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 10px;
+  width: 90%;
+  margin: 50px auto;
+  text-align: center;
+}
+.product {
+  padding: 30px 10px;
+  img {
+    width: 90%;
+    max-height: 200px;
+    margin: 0 auto;
+  }
+}
+
+/* Product Details Page Styles */
+.productDetails {
+  padding: 30px 0 50px 0;
+  width: 80%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 10px;
+
+  img {
+    width: 70%;
+    margin: auto;
+  }
+}
+.buyerDetails {
+  padding: 30px 0 50px 0;
+  width: 80%;
+  margin: 0 auto;
+
+  h2 {
+    margin-bottom: 20px;
+  }
+
+  input {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    margin: 10px 0;
+    outline: none;
+    border: 2px solid rgb(223, 221, 221);
+
+    &:focus {
+    background: rgba(155, 160, 159, 0.219);
+    color: #333;
+    border: none;
+    }
+  }
+
+  input[type='submit'] {
+    background-color: rgba(2, 99, 91, 0.945);
+    color: #ccc;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+}
+
+/* Make Payment Page Styles */
+.buyerName {
+  font-weight: bold;
+}
+.paymentDetails {
+  margin: 50px auto;
+  // width: 80%;
+  h2 {
+    text-align: center;
+    margin: 30px auto;
+  }
+}
+.card__details {
+  padding: 50px 20px;
+  position: relative;
+}
+.card {
+  display: block;
+}
+.card--digits,
+.card--info {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.card--digits input,
+.card--info input {
+  padding: 3px;
+  margin: 10px 0;
+  outline: none;
+  border: none;
+  background: #fff;
+  text-align: center;
+}
+.card--info input:first-child {
+  width: 60%;
+}
+.payButton {
+  background-color: rgba(2, 99, 91, 0.945);
+  color: #ccc;
+  cursor: pointer;
+  padding: 8px;
+  width: 100%;
+  outline: none;
+  border: none;
+  margin: 20px auto;
+}
+.is-mastercard {
+  background-image: url('../img/css-img/mastercard.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+}
+.is-visa {
+  background-image: url('../img/css-img/visa.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+}
+.none {
+  background-image: url('../img/css-img/creditcard.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+}
+.is-invalid {
+  text-decoration: line-through;
+  color: rgba(99, 4, 4, 0.952);
+}
+.result {
+  color: #333;
+}
+
+/* Add Product Page Styles */
+.addProduct {
+  padding: 30px 0 50px 0;
+  width: 80%;
+  margin: 50px auto;
+}
+.addProduct input {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  margin: 10px 0;
+  outline: none;
+  border: 2px solid rgb(223, 221, 221);
+}
+.addProduct input:focus {
+  background: rgba(2, 99, 91, 0.219);
+  color: #333;
+  border: none;
+}
+.addProduct input[type='submit'] {
+  background-color: rgba(2, 99, 91, 0.945);
+  color: #ccc;
+  cursor: pointer;
+}
+
+@media (min-width: 400px) {
+  .products {
+    grid-template-columns: 1fr 1fr;
+  }
+  .card__details {
+    margin: auto;
+    width: 70%;
+  }
+}
+
+@media (min-width: 600px) {
+  .products {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .main {
+    width: 80%;
+    margin: 0 auto;
+  }
+  .productDetails {
+    grid-template-columns: 1fr 1fr;
+    margin: 50px auto;
+  }
+  .addProduct {
+    margin: 50px auto;
+    width: 70%;
+  }
+  .card__details {
+    margin: auto;
+    width: 65%;
+  }
+}
+
+@media (min-width: 900px) {
+  .products {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+  .main {
+    width: 60%;
+  }
+  .card__details {
+    margin: auto;
+    width: 50%;
+  }
+  .card--digits {
+    margin: 0 auto;
+  }
+}
+
+.alert-danger {
+  padding: 20px;
+  background-color: #f44336;
+  color: white;
+  display: none;
+  margin: 20px auto;
+}
+.alert-success {
+  padding: 20px;
+  background-color: #3cf436;
+  color: white;
+  display: none;
+  margin: 20px auto;
+}
+
+.alert-danger .result,
+.alert-success .result {
+  color: white;
+}
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
+}

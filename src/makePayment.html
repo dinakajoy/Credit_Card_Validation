@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Credit Card Validation Demo</title>
+</head>
+<body>
+    <div id="loader" class="loader">
+        <img src="./img/html-img/loader.gif" alt="loader" />
+    </div>
+
+    <header class="header">
+        <h1>DINAKA'S BOUTTIQUE</h1>
+    </header>
+
+    <main>
+        <nav class="navigation">
+            <ul>
+                <li><a href="./">Home</a></li>
+                <li><a href="addProduct.html">Add Product</a></li>
+            </ul>
+        </nav>
+            <section class="main paymentDetails">
+                <div class="cart__info">
+                    <h2>Shopping Cart Details</h2>
+                    <br />
+                    <section class="productDetails">
+                        <div class="prodLeft">
+                            <img src="./img/html-img/logo.png" alt="Product Image" class="prodImg">
+                        </div>
+                        <div class="prodRight" style="text-align: left"> 
+                            <h3 class="buyerName"></h3>
+                            <br />
+                            <h4>Description</h4>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore deleniti repellat explicabo. Quibusdam aliquid provident laudantium, rem voluptates obcaecati vitae!</p>
+                            <br />
+                            <br />
+                            <strong class="prodName"></strong>
+                            <strong id="bill"></strong>
+                            
+                        </div>
+                    </section>
+                </div>
+                
+                <div class="alert-danger">
+                    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+                    <strong>Error! </strong><span class="result"></span>
+                </div>
+                <div class="alert-success">
+                    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+                    <strong>Success! </strong><span class="result"></span>
+                </div>
+                <div class="card__details">
+                    <div class="card--digits">
+                        <input type="text" size="4" placeholder="----" class="f">
+                        <input type="text" size="4" placeholder="----" class="f">
+                        <input type="text" size="4" placeholder="----" class="f">
+                        <input type="text" size="4" placeholder="----" class="f">
+                    </div>
+
+                    <div class="card--info">
+                        <input type="text" size="20" placeholder="Name Surname"  class="cardN">
+                        <input type="text" size="6" placeholder="MM/YY"  class="f">
+                    </div>
+                </div>
+                <button class="payButton">Pay Now</button>
+            </section>
+        </main>
+        <footer class="footer">
+            <p class="footer__text">Buy And Easily Pay For Any Product - Developed By Odinaka Joy</p>
+        </footer>
+    </div>
+</body>
+</html>
