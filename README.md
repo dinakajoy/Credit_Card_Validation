@@ -6,7 +6,8 @@ It allows users to select an item from the list of products and enter details, t
 
 ## Installation
 Clone the repository and cd into the project directory  
-Open with live server or open index.html file in your browser  
+To start the app for development, run `nmp start`
+To build the project for production, run `npm run build` 
 
 ## Usage
 Select desired product  
