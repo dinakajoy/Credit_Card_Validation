@@ -2,7 +2,8 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 
-let htmlPageNames = ["addProduct", "productDetails", "makePayment"];
+// let htmlPageNames = ["addProduct", "productDetails", "makePayment"];
+let htmlPageNames = [];
 let multipleHtmlPlugins = htmlPageNames.map((name) => {
   return new HtmlWebpackPlugin({
     template: `./src/${name}.html`, // relative path to the HTML files
@@ -80,7 +81,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "./src/index.html",
       chunks: ["index"],
-    }), 
+    }),
   ].concat(multipleHtmlPlugins),
   resolve: {
     extensions: [".ts", ".js", ".css", ".scss"],
