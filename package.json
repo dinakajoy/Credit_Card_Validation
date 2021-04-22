@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dinakajoy/Credit_Card_Validation.git"
+    "url": "git+https://github.com/dinakajoy/mini-jumia.git.git"
   },
   "author": "Odinaka Joy",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/dinakajoy/Credit_Card_Validation/issues"
+    "url": "https://github.com/dinakajoy/mini-jumia.git/issues"
   },
-  "homepage": "https://github.com/dinakajoy/Credit_Card_Validation#readme",
+  "homepage": "https://github.com/dinakajoy/mini-jumia.git#readme",
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.19.0",
     "@typescript-eslint/parser": "^4.19.0",
