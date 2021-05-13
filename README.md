@@ -28,4 +28,4 @@ You can also add your own product(s) to the list - you are welcome
 Access app via https://my-creditcard-project.netlify.com/
 
 ## Author
-[Odinaka Joy](https://odinakajoy.com)
+[Odinaka Joy](http://odinakajoy.com)
